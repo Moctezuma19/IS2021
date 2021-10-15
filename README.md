@@ -1,5 +1,3 @@
-# IS2021
-Hola
-Como estas?
+# IS 2021
 
-que paso?
+Repositorio para el ejemplos de laboratorio del curso.
