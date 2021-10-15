@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <style>
+        .card-size {
+            width: 60%;
+            height: 98%
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Notas</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card card-size" id="tarjeta">
+                <div class="card-body">
+                    <form method="post" th:action="@{/agrega}">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Escribe tu nota</label>
+                            <textarea  class="form-control" id="exampleFormControlTextarea1" name="nota" rows="3" placeholder="Ingresa aquí tu texto"></textarea>
+                        </div>
+                        <button id="boton" type="submit" class="btn btn-success" style="margin-top:11px">Agregar tarjeta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col" id="notas">aquí las notas</div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#boton").click(function(){
+            let texto = $("#exampleFormControlTextarea1").val();
+            console.log("texto",texto);
+            $("#notas").append("<div class='card card-size'><div class='card-body'>" + texto + "</div></div>");
+            $("#exampleFormControlTextarea1").val("");
+        });
+    });
+</script>
+</body>
+</html>
