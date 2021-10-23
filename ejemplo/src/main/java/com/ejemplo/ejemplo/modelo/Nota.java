@@ -23,4 +23,11 @@ public class Nota {
     @Column(name = "creada")
     private Timestamp creada;
 
+    @Column(name = "idUsuario", insertable = false, updatable = false)
+    private Integer idUsuario;
+
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    @ManyToOne(optional = false)
+    private Usuario usuario;
+
 }

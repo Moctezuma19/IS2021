@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public interface NotasServicio {
-    public Nota agrega(String texto);
+    public Nota agrega(Integer idUsuario, String texto);
     public String formatoFecha(Timestamp t);
-    public List<NotaDto> notas();
+    public List<NotaDto> notas(Integer idUsuario);
 }
