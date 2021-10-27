@@ -23,6 +23,9 @@ public class DetalleUsuarioServicioImpl implements DetalleUsuarioServicio, UserD
     @Override
     public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
         Usuario usuarioActivo = usuariosRepositorio.findUsuarioByNombre(nombre);
+        if(usuarioActivo == null){
+            throw new UsernameNotFoundException("name not found");
+        }
         UserDetails userDetails;
         GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioActivo.getNombre());
         userDetails = (UserDetails) new User(usuarioActivo.getNombre(), usuarioActivo.getClave(), Arrays.asList(grantedAuthority));
