@@ -22,8 +22,8 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/registro", "/css/**", "/fonts/**", "/images/**",
                         "/js/**", "/favicon.ico", "/iniciar-sesion", "/crea")
-                .permitAll().antMatchers("/").hasRole("USUARIO")
-                .anyRequest().hasRole("ADMIN")//authenticated()
+                .permitAll().antMatchers("/").hasRole("ADMIN")
+                .anyRequest().hasRole("USUARIO")//authenticated()
                 .and()
                 .formLogin().loginPage("/iniciar-sesion")
                 .loginProcessingUrl("/iniciar-sesion").usernameParameter("nombre").passwordParameter("clave")
