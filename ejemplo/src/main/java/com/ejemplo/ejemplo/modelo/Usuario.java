@@ -26,4 +26,7 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario")
     private List<Nota> notas;
+
+    @Column(name = "rol")
+    private String rol;
 }

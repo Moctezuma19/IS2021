@@ -3,6 +3,7 @@ package com.ejemplo.ejemplo.servicio.impl;
 import com.ejemplo.ejemplo.modelo.Usuario;
 import com.ejemplo.ejemplo.repositorio.UsuariosRepositorio;
 import com.ejemplo.ejemplo.servicio.UsuariosServicio;
+import com.ejemplo.ejemplo.util.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class UsuariosServicioImpl implements UsuariosServicio {
         Usuario nuevo = new Usuario();
         nuevo.setNombre(nombre);
         nuevo.setClave(new BCryptPasswordEncoder().encode(clave));
+        nuevo.setRol(Roles.ROLE_USUARIO);
         return usuariosRepositorio.saveAndFlush(nuevo);
     }
 }

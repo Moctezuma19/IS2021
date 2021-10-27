@@ -22,10 +22,17 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/registro", "/css/**", "/fonts/**", "/images/**",
                         "/js/**", "/favicon.ico", "/iniciar-sesion", "/crea")
-                .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/iniciar-sesion")
+                .permitAll().antMatchers("/").hasRole("USUARIO")
+                .anyRequest().hasRole("ADMIN")//authenticated()
+                .and()
+                .formLogin().loginPage("/iniciar-sesion")
                 .loginProcessingUrl("/iniciar-sesion").usernameParameter("nombre").passwordParameter("clave")
-                .defaultSuccessUrl("/").permitAll().and().logout()// logout configuration
-                .logoutUrl("/salir").deleteCookies("JSESSIONID").invalidateHttpSession(true)
+                .defaultSuccessUrl("/").permitAll()
+                .and()
+                .logout()// logout configuration
+                .logoutUrl("/salir")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
                 .logoutSuccessUrl("/iniciar-sesion").permitAll();
     }
 

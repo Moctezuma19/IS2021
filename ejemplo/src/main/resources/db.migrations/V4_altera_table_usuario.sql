@@ -1,0 +1,1 @@
+ALTER TABLE usuario ADD rol varchar(25) NULL;

@@ -27,7 +27,7 @@ public class DetalleUsuarioServicioImpl implements DetalleUsuarioServicio, UserD
             throw new UsernameNotFoundException("name not found");
         }
         UserDetails userDetails;
-        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioActivo.getNombre());
+        GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(usuarioActivo.getRol());
         userDetails = (UserDetails) new User(usuarioActivo.getNombre(), usuarioActivo.getClave(), Arrays.asList(grantedAuthority));
         return userDetails;
     }
