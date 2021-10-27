@@ -17,6 +17,7 @@
     </style>
 </head>
 <body>
+<div th:replace="header :: header-invited-user"> </div>
 <div class="container" style="margin-top: 10px">
     <div class="row">
         <div class="col"></div>
@@ -24,12 +25,12 @@
             <div class="alert alert-warning" role="alert" th:if="${error}">
                 <p>No se pudo crear el usuario con el nombre <b th:text="${nombre}"></b>, intenta con otro nombre.</p>
             </div>
-            <div class="card" style="width:470px">
+            <div class="card" style="width:470px; box-shadow: 5px 13px 22px -6px #888888;">
                 <div class="card-body">
                     <form th:action="@{/crea}" method="post">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" maxlength="18" required>
                         </div>
                         <div class="mb-3">
                             <label for="clave" class="form-label">Contraseña</label>

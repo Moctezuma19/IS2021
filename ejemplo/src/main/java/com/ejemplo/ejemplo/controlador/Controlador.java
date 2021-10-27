@@ -42,12 +42,16 @@ public class Controlador {
     }
 
     @RequestMapping("/iniciar-sesion")
-    public String inciarSesion(Model model, String error) {
+    public String inciarSesion(Model model, String error, Principal principal) {
+
 
         if (error != null) {
             model.addAttribute("error", true);
         }
 
+        if (principal != null) {
+            return "redirect:/";
+        }
         return "iniciar-sesion";
     }
 
