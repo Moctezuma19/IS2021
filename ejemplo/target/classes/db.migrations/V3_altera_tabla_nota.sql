@@ -1,1 +1,0 @@
-ALTER TABLE nota ADD idUsuario INT NULL, ADD CONSTRAINT fk_nota_usuario FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario);
