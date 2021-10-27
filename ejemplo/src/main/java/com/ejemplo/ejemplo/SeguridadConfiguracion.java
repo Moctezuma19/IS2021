@@ -21,9 +21,8 @@ public class SeguridadConfiguracion extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/registro", "/css/**", "/fonts/**", "/images/**",
-                        "/js/**", "/favicon.ico", "/iniciar-sesion", "/crea")
-                .permitAll().antMatchers("/").hasRole("ADMIN")
-                .anyRequest().hasRole("USUARIO")//authenticated()
+                        "/js/**", "/favicon.ico", "/iniciar-sesion", "/crea").permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/iniciar-sesion")
                 .loginProcessingUrl("/iniciar-sesion").usernameParameter("nombre").passwordParameter("clave")
