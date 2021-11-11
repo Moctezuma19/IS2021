@@ -1,3 +1,4 @@
-# IS 2021
+# Ingeniería de software 2021
 
-Repositorio para el ejemplos de laboratorio del curso.
+Repositorio con ejemplo de proyecto con Spring boot y Thymeleaf.
+Repositorio para ejemplo de React -> [https://github.com/Moctezuma19/IS2021-react](https://github.com/Moctezuma19/IS2021-react)
